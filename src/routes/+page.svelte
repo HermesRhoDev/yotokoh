@@ -1,3 +1,5 @@
+<!-- TEST -->
+
 <script lang="ts">
 	import { fade, fly } from 'svelte/transition';
 	let isActive = false;
