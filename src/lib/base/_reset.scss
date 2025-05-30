@@ -16,11 +16,13 @@
 
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    background-color: #e3e0d9;
 }
 
 img,

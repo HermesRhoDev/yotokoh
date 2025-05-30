@@ -11,8 +11,8 @@
 
 <main>
 	<section id="landing">
-		<!-- <img src="/images/landing/abstract.webp" alt="" loading="lazy" /> -->
 		<canvas id="gradient-canvas" data-transition-in />
+		
 		<Menu />
 
 		<div class="name">
@@ -20,4 +20,12 @@
 			<span class="name-big">GUERRAZZI</span>
 		</div>
 	</section>
+
+	<section id="technologies"></section>
+
+	<section id="projects"></section>
+
+	<section id="socials"></section>
+
+	<section id="contact"></section>
 </main>
