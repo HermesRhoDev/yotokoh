@@ -1,12 +1,12 @@
 <nav class="menu">
 	<ul>
-		<li class="left"><a href="#">Yotokoh</a></li>
+		<li class="left"><a href="#">MG</a></li>
 
 		<li class="center">
 			<ul class="middle-links">
 				<li><a href="#">Accueil</a></li>
 				<li><a href="#projects">Projets</a></li>
-				<li><a href="#socials">Contact</a></li>
+				<li><a href="#socials">Réseaux</a></li>
 			</ul>
 		</li>
 
