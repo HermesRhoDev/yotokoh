@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+
+.menu {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.4rem;
+
+	ul {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		width: 100%;
+
+        .left {
+            background-color: #e3e0d9;
+            padding: 1rem 2rem;
+            position: relative;
+            border-radius: 0 0 1rem 0;
+        
+            &::after {
+                display: block;
+                content: "";
+                position: absolute;
+                background-color: transparent;
+                bottom: -40px;
+                height: 40px;
+                width: 20px;
+                left: 0;
+                right: initial;
+                margin-left: 1rem;
+                mask: none, none;
+                top: initial;
+                box-shadow: 0 -20px 0 0 #e3e0d9;
+                border-radius: 10px 0 0 0;
+                z-index: -1;
+            }
+
+            &:before {
+                display: block;
+                content: "";
+                position: absolute;
+                background-color: transparent;
+                bottom: initial;
+                height: 40px;
+                width: 20px;
+                right: -20px;
+                left: initial;
+                margin: 1rem 0 0 1rem;
+                mask: none, none;
+                top: 0;
+                box-shadow: 0 -20px 0 0 #e3e0d9;
+                border-radius: 10px 0 0 0;
+                z-index: -1;
+            }
+        }
+
+        .right {
+            
+        }
+	}
+
+	.middle-links {
+		display: flex;
+		gap: 2rem;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	a {
+		text-decoration: none;
+		color: inherit;
+		font-weight: 500;
+	}
+}
