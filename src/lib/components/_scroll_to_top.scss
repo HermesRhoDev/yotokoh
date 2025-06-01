@@ -1,0 +1,167 @@
+$scroll-color-bg: #e3e0d9;
+$scroll-color-text: rgb(35, 34, 34);
+$scroll-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+$scroll-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+$scroll-size-small: 40px;
+$scroll-size-medium: 50px;
+$scroll-size-large: 60px;
+
+$scroll-position-bottom: 3rem;
+$scroll-position-right: 1rem;
+$scroll-position-bottom-mobile: 1rem;
+
+@mixin scroll-transform-center($y: 0) {
+	transform: translateX(-50%) translateY($y);
+}
+
+@mixin scroll-size($size) {
+	width: $size;
+	height: $size;
+}
+
+.scroll-to-top {
+	--color-bg: #{$scroll-color-bg};
+	--color-text: #{$scroll-color-text};
+	--shadow: #{$scroll-shadow};
+	--transition: #{$scroll-transition};
+
+	position: fixed;
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #e3e0d9;
+	color: var(--color-text);
+	border: none;
+	border-radius: 1rem 0 0 1rem;
+	cursor: pointer;
+	box-shadow: var(--shadow);
+	transition: var(--transition);
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(20px);
+
+    &::after {
+        display: block;
+        content: "";
+        position: absolute;
+        background-color: transparent;
+        bottom: -4rem;
+        height: 4rem;
+        width: 2rem;
+        left: initial;
+        right: 0;
+        margin-left: 1rem;
+        mask: none, none;
+        top: initial;
+        box-shadow: 0 -2rem 0 0 #e3e0d9;
+        border-radius: 0 1rem 0 0;
+        z-index: -1;
+    }
+
+    &:before {
+        display: block;
+        content: "";
+        position: absolute;
+        background-color: transparent;
+        bottom: initial;
+        height: 4rem;
+        width: 2rem;
+        right: -1rem;
+        left: initial;
+        margin: 0 1rem 1rem 0;
+        mask: none, none;
+        top: -4rem;
+        box-shadow: 0 -2rem 0 0 #e3e0d9;
+        border-radius: 0 1rem 0 0;
+        z-index: -1;
+        transform: scaleY(-1);
+    }
+
+	&--small {
+		@include scroll-size($scroll-size-small);
+	}
+
+	&--medium {
+		@include scroll-size($scroll-size-medium);
+	}
+
+	&--large {
+		@include scroll-size($scroll-size-large);
+	}
+
+	&--bottom-right {
+		bottom: $scroll-position-bottom;
+		right: $scroll-position-right;
+	}
+
+	&--bottom-left {
+		bottom: $scroll-position-bottom;
+		left: $scroll-position-bottom;
+	}
+
+	&--bottom-center {
+		bottom: $scroll-position-bottom;
+		left: 50%;
+		@include scroll-transform-center(20px);
+	}
+
+	&--visible {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+
+		&.scroll-to-top--bottom-center {
+			@include scroll-transform-center(0);
+		}
+	}
+
+	&:focus {
+		outline: 2px solid var(--color-bg);
+		outline-offset: 2px;
+	}
+
+	&:active {
+		transform: translateY(0) scale(0.95);
+
+		&.scroll-to-top--bottom-center {
+			@include scroll-transform-center(0);
+			transform: translateX(-50%) translateY(0) scale(0.95);
+		}
+	}
+
+	&__icon {
+		width: 75%;
+		height: 75%;
+		transition: transform 0.2s ease;
+	}
+}
+
+@media (max-width: 768px) {
+	.scroll-to-top {
+		&--bottom-right,
+		&--bottom-left,
+		&--bottom-center {
+			bottom: $scroll-position-bottom-mobile;
+		}
+
+		&--bottom-right {
+			right: $scroll-position-bottom-mobile;
+		}
+
+		&--bottom-left {
+			left: $scroll-position-bottom-mobile;
+		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.scroll-to-top {
+		transition: opacity 0.3s ease;
+
+		&__icon {
+			transition: none;
+		}
+	}
+}
